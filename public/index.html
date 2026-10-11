@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f8f7ef"><meta name="description" content="Frolic turns a little time outside into a real-life side quest. Less scrolling. More frolicking.">
+  <title>Frolic — Your life needs more side quests</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css?v=24">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar"><a class="brand" href="#top" aria-label="Frolic home"><span class="brand-mark">f<span>✳</span></span><span>frolic<span class="brand-period">.</span></span></a><nav class="desktop-nav" aria-label="Main navigation"><a href="#quest-section">Daily quest</a><a href="#nature-arcade">Arcade</a><a href="#badges-section">Badges</a></nav><div class="top-right"><span class="desktop-status"><i></i>Outside mode</span><button type="button" class="button button-group-top" id="group-open-button" aria-controls="group-camping-panel" aria-expanded="false">👋 Invite & group camp <span>↗</span></button></div></header>
+    <main id="top">
+      <section class="hero"><div class="hero-copy"><div class="eyebrow"><span class="sun-icon">☀</span> A TINY ADVENTURE AWAITS</div><h1>Your life needs<br>more <span class="scribble">side quests.</span></h1><p class="hero-sub">A little fresh air. A weird little mission.<br>A much better story to tell later.</p><div class="hero-actions"><button type="button" class="button button-dark" id="start-quest">Give me a quest <span>↗</span></button><button type="button" class="button button-group-hero" id="group-hero-button" aria-controls="group-camping-panel" aria-expanded="false">🏕️ Group camping</button><div class="micro-proof"><span class="avatar-stack"><i>🌼</i><i>🐸</i><i>🍄</i></span><span>Made for people who<br>need a little nudge outside.</span></div></div></div><div class="hero-art" aria-label="Illustration of a happy frog outdoors"><div class="art-sun"></div><div class="art-cloud cloud-one"></div><div class="art-cloud cloud-two"></div><div class="hill hill-back"></div><div class="hill hill-front"></div><div class="flower flower-one">✿</div><div class="flower flower-two">✿</div><div class="flower flower-three">✿</div><div class="frog"><div class="frog-hat" aria-hidden="true">🎩</div><div class="frog-camera" aria-hidden="true">📸</div><div class="frog-blazer" aria-hidden="true"><span class="blazer-lapel lapel-left"></span><span class="blazer-lapel lapel-right"></span><span class="blazer-button"></span><span class="blazer-button second"></span></div><div class="frog-leg leg-left"></div><div class="frog-leg leg-right"></div><div class="frog-body"><div class="frog-eye eye-left"><i></i></div><div class="frog-eye eye-right"><i></i></div><div class="frog-cheek cheek-left"></div><div class="frog-cheek cheek-right"></div><div class="frog-smile"></div></div><div class="frog-belly"></div></div><div class="art-note note-top">GO BE A PERSON ↗</div><div class="art-note note-bottom">NO MAIN CHARACTER<br>REQUIRED ★</div></div></section>
+      <section class="group-camping-panel" id="group-camping-panel" hidden aria-labelledby="group-camping-title">
+        <div class="group-panel-top"><div><div class="eyebrow">YOUR CREW, YOUR QUEST</div><h2 id="group-camping-title">Make it a <span>camp-out.</span> 🏕️</h2><p>Invite your people, pick a little adventure, and watch your crew RSVP in real time.</p></div><button type="button" class="group-close" id="group-close-button" aria-label="Close group camping">×</button></div>
+        <div id="group-create-wrap" class="group-create-wrap">
+          <form id="group-create-form" class="group-create-form">
+            <label for="camp-name">CAMP NAME<input id="camp-name" name="camp-name" maxlength="80" placeholder="The Moss Boss Club" required></label>
+            <label for="host-name">YOUR NAME<input id="host-name" name="host-name" maxlength="60" placeholder="Captain Fern" required></label>
+            <label for="camp-location">📍 CAMPING SPOT<input id="camp-location" name="camp-location" maxlength="180" placeholder="Park, trail, beach, or meeting point"></label>
+            <label for="camp-location-url">MAP LINK <input id="camp-location-url" name="camp-location-url" type="url" maxlength="500" placeholder="https://maps.google.com/..."></label>
+            <div class="group-quest-preview"><span>🌱 TODAY'S GROUP QUEST</span><strong id="group-quest-title">Become a tiny nature detective.</strong><small id="group-quest-description">A little outdoor mission for your whole crew.</small></div>
+            <button class="button button-dark" type="submit" id="create-camp-button">Create your camp <span>↗</span></button>
+          </form>
+        </div>
+        <div id="camp-dashboard" class="camp-dashboard" hidden>
+          <div class="camp-dashboard-head"><span class="camp-badge">🌿 CAMP IS OPEN</span><h3 id="camp-dashboard-name">The Moss Boss Club</h3><p id="camp-dashboard-quest"></p><button type="button" class="button button-lime camp-submit-quest" id="group-submit-quest-button">📸 Submit group quest <span>↗</span></button><small class="camp-submit-note">Share your crew’s evidence through the quest review below.</small><div class="camp-location-display" id="camp-location-display" hidden><span>📍 MEET YOUR CREW HERE</span><strong id="camp-location-name"></strong><a id="camp-location-link" href="#" target="_blank" rel="noopener noreferrer" hidden>Open map ↗</a></div></div>
+          <div class="camp-code-row"><div><small>YOUR GROUP CODE</small><strong id="camp-code">ABC123</strong></div><button type="button" class="mini-button" id="copy-camp-code">Copy code</button></div>
+          <form id="group-invite-form" class="group-invite-form"><label for="invitee-name">INVITE A FRIEND BY NAME<input id="invitee-name" maxlength="60" placeholder="Your favorite human" required></label><button class="button button-lime" type="submit" id="send-invite-button">Create invite link <span>↗</span></button></form>
+          <div id="group-message" class="group-message" aria-live="polite"></div>
+          <div class="invite-list-wrap"><div class="invite-list-heading"><strong>Your camp crew</strong><div class="invite-actions"><span id="invite-count">0 invites</span><button type="button" class="mini-button" id="refresh-camp-button">Refresh ↻</button></div></div><div id="group-invite-list" class="group-invite-list"><p class="empty-invites">No invites yet. Add your first camp buddy! 🌼</p></div></div>
+        </div>
+        <div id="group-accept-wrap" class="group-accept-wrap" hidden>
+          <form id="group-code-form" class="group-code-form"><label for="group-code-input">OR JOIN WITH A GROUP CODE<input id="group-code-input" maxlength="20" placeholder="PASTE YOUR CAMP CODE" autocomplete="off" required></label><button class="mini-button" type="submit">Find camp ↗</button></form>
+          <div class="accept-sticker">💌</div><div><div class="eyebrow">YOU'VE BEEN INVITED</div><h3 id="accept-camp-name">A friend wants you on their team!</h3><p id="accept-camp-details">A tiny quest is waiting for your crew.</p><a class="accept-location-link" id="accept-location-link" href="#" target="_blank" rel="noopener noreferrer" hidden>📍 Open camp map ↗</a></div>
+          <form id="group-accept-form"><label for="guest-name">WHAT SHOULD YOUR CREW CALL YOU?<input id="guest-name" maxlength="60" placeholder="Your name or nickname" required></label><button class="button button-dark" type="submit" id="accept-invite-button">Accept invitation <span>✓</span></button></form>
+          <div id="accept-message" class="group-message" aria-live="polite"></div>
+        </div>
+      </section>
+      <section class="forest-camp" aria-label="Animated forest camping scene">
+        <div class="forest-camp-heading"><span class="forest-stamp">✦ FRESH AIR CLUB ✦</span><p>Pack a snack. <strong>Find a little wonder.</strong></p><span class="forest-sparkle sparkle-a">✳</span><span class="forest-sparkle sparkle-b">✦</span></div>
+        <div class="forest-runway" aria-hidden="true">
+          <div class="forest-sky-glow"></div><div class="forest-moon">☀</div>
+          <span class="forest-cloud forest-cloud-a">☁</span><span class="forest-cloud forest-cloud-b">☁</span>
+          <span class="pine pine-a"></span><span class="pine pine-b"></span><span class="pine pine-c"></span><span class="pine pine-d"></span><span class="pine pine-e"></span><span class="pine pine-f"></span>
+          <span class="camp-tent">⛺</span><span class="campfire">🔥</span>
+          <span class="forest-flower flower-a">✿</span><span class="forest-flower flower-b">✽</span><span class="forest-flower flower-c">✿</span><span class="forest-flower flower-d">✾</span><span class="forest-flower flower-e">✿</span>
+          <span class="firefly firefly-a">✦</span><span class="firefly firefly-b">✧</span><span class="firefly firefly-c">✦</span>
+          <span class="camp-ranger">🐸🎒</span>
+          <span class="forest-trail"></span>
+        </div>
+        <div class="forest-camp-caption"><span>🌿 LITTLE STEPS, BIG OUTSIDE ENERGY</span><span>🌼 BLOOM WHERE YOU WANDER</span></div>
+      </section>
+      <section class="stats-row"><div class="stat"><span class="stat-icon">🔥</span><div><strong id="streak">0 days</strong><small>outside streak</small></div></div><div class="stat"><span class="stat-icon">⚡</span><div><strong><span id="xp">0</span> XP</strong><small>tiny wins count</small></div></div><div class="stat"><span class="stat-icon">🏅</span><div><strong id="badge-count">0 badges</strong><small>your little legend</small></div></div><div class="level-pill"><span>LEVEL 01</span><strong>Sprout Scout</strong><div class="level-track"><i id="level-progress"></i></div></div></section>
+      <section class="quest-section" id="quest-section"><div class="section-heading"><div><div class="eyebrow">YOUR NEXT LITTLE STORY</div><h2>Pick your plot. <span>🌱</span></h2></div><button class="text-button" id="surprise">Surprise me ↗</button></div>
+        <div class="quest-controls"><div class="field-group"><label for="mood">TODAY I'M FEELING</label><select id="mood"><option value="curious">Curious 👀</option><option value="chaotic">A little chaotic 🌀</option><option value="chill">Soft & chill ☁️</option><option value="social">Social butterfly 🦋</option><option value="nature">Nature nerd 🌿</option></select></div><div class="field-group"><label for="duration">TIME AVAILABLE</label><select id="duration"><option value="5">5 minutes</option><option value="10" selected>10 minutes</option><option value="20">20 minutes</option><option value="30">30 minutes</option></select></div><div class="field-group"><label for="difficulty">CHAOS LEVEL</label><select id="difficulty"><option value="gentle">Gentle</option><option value="normal" selected>Normal</option><option value="chaos">Unhinged (safe)</option></select></div></div>
+        <div class="quest-card" id="quest-card"><div class="quest-card-top"><span class="quest-tag"><span>✦</span> DAILY SIDE QUEST</span><span class="quest-time">◷ <span id="quest-time">10</span> MIN</span></div><div class="quest-content"><div class="quest-emoji" id="quest-emoji">🍃</div><div class="quest-main"><div class="quest-kicker" id="quest-kicker">THE ART OF NOTICING</div><h3 id="quest-title">Become a tiny nature detective.</h3><p id="quest-description">Find three things growing through a crack, between bricks, or somewhere they absolutely weren't invited. Nature said “watch me.”</p><div class="quest-chips"><span>⚡ <b id="quest-xp">50</b> XP</span><span>◉ <b id="quest-difficulty">Easy does it</b></span><span>📵 Phone optional</span></div></div></div><div class="quest-card-bottom"><span class="tiny-note">Psst. The point is to go do it, not document it.</span><button type="button" class="button button-lime" id="complete-quest" aria-controls="evidence-panel" aria-expanded="false">Quest complete <span>✓</span></button></div></div>
+        <section class="evidence-panel" id="evidence-panel" aria-labelledby="evidence-title" hidden>
+          <div class="evidence-head"><span class="evidence-sticker">🔎</span><div><div class="eyebrow">THE TINY QUEST REVIEW</div><h3 id="evidence-title">Show us your Frolic.</h3><p>Upload a photo or short video, tell us what you noticed, and pass the safety check to unlock this quest's XP.</p></div></div>
+          <form id="evidence-form">
+            <label class="upload-drop" for="evidence-file"><span class="upload-icon">📸</span><strong id="upload-label">Choose a photo or video</strong><small>JPG, PNG, WEBP, GIF, MP4, MOV or WEBM · max 10 MB</small><input id="evidence-file" name="evidence" type="file" accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm,video/quicktime" required></label>
+            <div id="evidence-preview" class="evidence-preview" hidden></div>
+            <label class="reflection-label" for="reflection">YOUR FIELD NOTES <span>20+ characters</span></label><textarea id="reflection" minlength="20" maxlength="1000" placeholder="I noticed a tiny plant growing between two paving stones..." required></textarea>
+            <label class="check-row"><input id="noticed-check" type="checkbox" required><span>I actually did the quest and described something I noticed.</span></label>
+            <label class="check-row"><input id="safe-check" type="checkbox" required><span>I stayed safe, respected nature, and left wildlife/plants undisturbed.</span></label>
+            <div id="evaluation-result" class="evaluation-result" aria-live="polite"></div>
+            <div class="evidence-actions"><button type="button" class="text-button" id="cancel-evidence">Maybe later</button><button type="submit" class="button button-lime" id="evaluate-quest">Evaluate my evidence <span>↗</span></button></div>
+          </form>
+        </section>
+        <div class="quest-feedback" id="feedback" aria-live="polite"></div><button class="reroll-button" id="reroll">↻ Roll another quest</button>
+      </section>
+      <section class="bottom-grid"><article class="chaos-card"><div class="chaos-sticker">?!</div><div class="eyebrow">FEELING FERAL?</div><h2>Enter<br>chaos mode.</h2><p>Questionable missions.<br>Excellent stories.</p><button id="chaos-mode" class="button button-light">Release the chaos ↗</button><span class="chaos-doodle">〰</span></article><article class="badges-card" id="badges-section"><div class="section-heading compact"><div><div class="eyebrow">THE HALL OF TINY FAME</div><h2>Your little legends</h2></div><span class="badge-total" id="badge-total">0 / 5</span></div><div class="badge-list" id="badge-list"><div class="achievement locked"><span>🌱</span><div><strong>First Frolic</strong><small>Complete your first quest</small></div><i>🔒</i></div><div class="achievement locked"><span>🦉</span><div><strong>Observant Bean</strong><small>Complete 3 quests</small></div><i>🔒</i></div><div class="achievement locked"><span>🌀</span><div><strong>Certified Goof</strong><small>Try chaos mode</small></div><i>🔒</i></div><div class="achievement locked"><span>🔥</span><div><strong>Touch Grass Twice</strong><small>Frolic on 2 different days</small></div><i>🔒</i></div><div class="achievement locked"><span>🧭</span><div><strong>Plot Armor</strong><small>Complete 10 quests</small></div><i>🔒</i></div></div></article></section>
+      <section class="nature-arcade" id="nature-arcade">
+        <div class="section-heading"><div><div class="eyebrow">THE GREAT OUTDOORS ARCADE</div><h2>Play a little. <span>🍄</span></h2></div><span class="arcade-note">IRL + INDOOR MINI-GAMES</span></div>
+        <div class="game-grid">
+          <article class="game-card bingo-game"><div class="game-top"><span class="game-icon">🔍</span><span class="game-label">GAME 01 · OBSERVATION</span></div><h3>Nature Bingo</h3><p>Spot these things on your next safe stroll. Tap a square when you find it.</p><div class="bingo-grid" id="bingo-grid"></div><div class="game-bottom"><span id="bingo-score">0 / 9 spotted</span><button type="button" class="mini-button" id="bingo-reset">New card ↻</button></div></article>
+          <article class="game-card memory-game"><div class="game-top"><span class="game-icon">🍂</span><span class="game-label">GAME 02 · MEMORY</span></div><h3>Leafy Pairs</h3><p>Flip cards and find all the matching nature pals.</p><div class="memory-grid" id="memory-grid"></div><div class="game-bottom"><span id="memory-score">0 pairs · 0 flips</span><button type="button" class="mini-button" id="memory-reset">Shuffle ↻</button></div></article>
+          <article class="game-card quiz-game"><div class="game-top"><span class="game-icon">🐦</span><span class="game-label">GAME 03 · NATURE NERD</span></div><h3>Bird Brain</h3><p>A tiny nature quiz. Guess first, then reveal the fun fact.</p><div id="bird-quiz" class="bird-quiz"><span class="quiz-count">QUESTION 1 / 3</span><h4 id="quiz-question">Why do many birds fluff up their feathers?</h4><div class="quiz-options" id="quiz-options"></div><p id="quiz-feedback" aria-live="polite"></p><button type="button" class="mini-button" id="quiz-next" hidden>Next question →</button></div></article>
+        </div>
+        <p class="arcade-footnote">Games are for curiosity, not XP farming. Quest rewards still need evidence review. 🌿</p>
+      </section>
+      <footer>
+        <div class="footer-inner">
+          <div class="footer-decor" aria-hidden="true"><span>✦</span><span>✿</span><span>✦</span></div>
+          <a class="brand footer-brand" href="#top" aria-label="Back to Frolic home"><span class="brand-mark">f<span>✳</span></span><span>frolic<span class="brand-period">.</span></span></a>
+          <p class="footer-copy">Built for the great outdoors<br><span>and your questionable attention span.</span></p>
+          <span class="footer-open"><span>✳ OPEN AI. OPEN AIR.</span><br>OPEN MIND.</span>
+        </div>
+      </footer>
+    </main>
+  </div><div class="toast" id="toast" role="status"></div><script src="/app.js?v=20"></script>
+</body></html>

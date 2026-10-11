@@ -1,0 +1,5 @@
+[[secret]]
+name = "HF_TOKEN"
+required = false
+expose = true
+description = "Optional Hugging Face access token for generating quests with the open-weight Qwen2.5-7B-Instruct model. Create a token at huggingface.co/settings/tokens. Without it, Frolic uses its built-in local quest deck."

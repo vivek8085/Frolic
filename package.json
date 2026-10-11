@@ -1,0 +1,20 @@
+{
+  "name": "frolic",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Frolic is a playful outdoor side-quest game powered by Hugging Face and MongoDB Atlas.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "mongodb": "^6.20.0",
+    "multer": "^2.0.2"
+  }
+}
