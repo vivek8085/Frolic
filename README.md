@@ -229,4 +229,4 @@ The AI is intentionally used to create a short starting point, not to keep users
 
 ## License
 
-This project is released under the MIT License.
+This project is Open Source Feel Free to use
