@@ -4,6 +4,8 @@ Frolic is a playful outdoor side-quest app powered by open-weight AI. It gives p
 
 Choose a mood, time limit, and difficulty to generate a safe outdoor quest. Complete the quest to earn XP, build badges, submit a reflection, or invite friends to a group camp.
 
+## [Try now!](https://frolic-v1ce.onrender.com/)
+
 ## Features
 
 - AI-generated outdoor quests using Hugging Face Inference Router
